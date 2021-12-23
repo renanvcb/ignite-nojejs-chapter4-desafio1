@@ -1,4 +1,4 @@
-import { InMemoryUsersRepository } from "../../repositories/in-memory/InMemoryUsersRepository"
+import { InMemoryUsersRepository } from "../../repositories/in-memory/InMemoryUsersRepository";
 import { CreateUserUseCase } from "./CreateUserUseCase";
 
 let createUserUseCase: CreateUserUseCase;
@@ -11,12 +11,13 @@ describe("Create user", () => {
   });
 
   it("should create a new user", async () => {
-    const response = await createUserUseCase.execute({
+    const userCreated = await createUserUseCase.execute({
       name: "John Doe",
       email: "john.doe@mail.com",
       password: "password",
-    })
+    });
+    
+    expect(userCreated).toHaveProperty("id");
   });
 
-  expect(response.status).toBe(201);
 });
