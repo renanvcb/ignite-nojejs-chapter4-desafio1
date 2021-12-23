@@ -18,7 +18,7 @@ describe("Create user", () => {
     createUserUseCase = new CreateUserUseCase(inMemoryUsersRepository);
   });
 
-  it("should create a new user", async () => {
+  it("should be able to create a new user", async () => {
     const userCreated = await createUserUseCase.execute(testUSerData);
 
     expect(userCreated).toHaveProperty("id");
@@ -28,7 +28,7 @@ describe("Create user", () => {
     expect(userCreated.password).not.toEqual(testUSerData.password);
   });
 
-  it("should be able to create a new user that already exists", async () => {
+  it("should not be able to create a new user that already exists", async () => {
     await createUserUseCase.execute(testUSerData);
 
     expect(async () => {
