@@ -3,15 +3,14 @@ import { InMemoryUsersRepository } from "../../repositories/in-memory/InMemoryUs
 import { CreateUserUseCase } from "./CreateUserUseCase";
 import { ICreateUserDTO } from "./ICreateUserDTO";
 
-let createUserUseCase: CreateUserUseCase;
-let inMemoryUsersRepository: InMemoryUsersRepository;
-
-describe("Create user", () => {
+describe("Create user use case", () => {
+  let createUserUseCase: CreateUserUseCase;
+  let inMemoryUsersRepository: InMemoryUsersRepository;
   const testUSerData: ICreateUserDTO = {
     name: "John Doe",
     email: "john.doe@mail.com",
     password: "password",
-  }
+  };
 
   beforeEach(async () => {
     inMemoryUsersRepository = new InMemoryUsersRepository();
