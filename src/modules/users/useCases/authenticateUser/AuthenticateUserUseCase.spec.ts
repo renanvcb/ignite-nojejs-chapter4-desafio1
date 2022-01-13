@@ -8,11 +8,11 @@ import { User } from "../../entities/User";
 import authConfig from '../../../../config/auth';
 import { AppError } from "../../../../shared/errors/AppError";
 
-let createUserUseCase: CreateUserUseCase;
-let authenticateUserUseCase: AuthenticateUserUseCase;
-let inMemoryUsersRepository: InMemoryUsersRepository;
 
-describe("Authenticate User Use Case", () => {
+describe("Authenticate user use case", () => {
+  let createUserUseCase: CreateUserUseCase;
+  let authenticateUserUseCase: AuthenticateUserUseCase;
+  let inMemoryUsersRepository: InMemoryUsersRepository;
   interface ITokenUser {
     user: User,
     token: string,
